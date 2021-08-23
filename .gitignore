@@ -562,3 +562,4 @@ FodyWeavers.xsd
 
 .env
 db_data
+build/
