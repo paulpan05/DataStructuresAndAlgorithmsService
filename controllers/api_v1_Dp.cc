@@ -21,8 +21,25 @@ void Dp::lcs(
       }
     }
   }
+
+  int longest = table[first_ln][second_ln];
+  string longest_str (longest, ' ');
+  for (size_t i = first_ln, j = second_ln, k = longest - 1; i > 0 && j > 0;) {
+    if (first_str[i - 1] == second_str[j - 1]) {
+      longest_str[k] = first_str[i - 1];
+      i -= 1;
+      j -= 1;
+      k -= 1;
+    } else if (table[i - 1][j] > table[i][j - 1]) {
+      i -= 1;
+    } else {
+      j -= 1;
+    }
+  }
+
   Json::Value ret;
-  ret["length"] = table[first_ln][second_ln];
+  ret["length"] = longest;
+  ret["common_string"] = longest_str;
   auto resp = HttpResponse::newHttpJsonResponse(ret);
   callback(resp);
 }
