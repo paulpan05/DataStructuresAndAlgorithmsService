@@ -12,11 +12,9 @@ void Dp::lcs(
   size_t first_ln = first_str.length();
   size_t second_ln = second_str.length();
   vector<vector<int>> table (first_ln + 1, vector<int>(second_ln + 1, 0));
-  for (size_t i = 0; i < table.size(); i += 1) {
-    for (size_t j = 0; j < table[0].size(); j += 1) {
-      if (i == 0 || j == 0) {
-        table[i][j] = 0;
-      } else if (first_str[i - 1] == second_str[j - 1]) {
+  for (size_t i = 1; i < table.size(); i += 1) {
+    for (size_t j = 1; j < table[0].size(); j += 1) {
+      if (first_str[i - 1] == second_str[j - 1]) {
         table[i][j] = table[i - 1][j - 1] + 1;
       } else {
         table[i][j] = max(table[i - 1][j], table[i][j - 1]);
