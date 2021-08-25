@@ -563,3 +563,4 @@ FodyWeavers.xsd
 .env
 db_data
 build/
+.DS_Store
