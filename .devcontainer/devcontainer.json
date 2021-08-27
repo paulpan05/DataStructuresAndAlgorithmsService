@@ -1,6 +1,6 @@
 {
   "dockerComposeFile": "./docker-compose.yml",
-  "extensions": ["ms-vscode.cpptools-extension-pack"],
+  "extensions": ["ms-vscode.cpptools-extension-pack", "marty1885.drogon-csp-lanuage"],
   "service": "web",
   "workspaceFolder": "/DataStructuresAndAlgorithmsService",
 }
